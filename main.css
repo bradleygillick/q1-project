@@ -1,24 +1,22 @@
-body {
+header {
+  height: 10vh;
+}
+
+main {
+  height: 75vh;
+  overflow: scroll;
+}
+
+footer {
+  height: 10vh;
+}
+
+.myProgress {
+    width: 100%;
     background-color: grey;
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
 
-.div1 {
-    background-color: yellow;
-    height: 80%;
-    width: 40%;
 }
-
-.div2 {
-    background-color: white;
-    height: 80%;
-    width: 40%;
-}
-
-.score {
-    display: block;
-}
+.myBar {
+    width: 1%;
+    height: 30px;
+    background-color: green;

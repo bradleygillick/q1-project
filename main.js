@@ -6,7 +6,12 @@ console.log("js attached!")
 
 $(document).ready(function() {
 
+    // $('.scrollspy').scrollSpy();
+
     submit.addEventListener("click", function() {
+        $("#div1").empty()
+        $("#midDiv").empty()
+        $("#div2").empty()
 
         var city1 = document.getElementById("city1").value.toLowerCase();
         var city2 = document.getElementById("city2").value.toLowerCase();
@@ -19,11 +24,9 @@ $(document).ready(function() {
             if (info1.status !== 200) {
                 return;
             }
-            console.log(data);
-            console.log(data.summary);
-            //console.log(data.categories[0].name)
-            appendSummary('.div1', data.summary);
-            appendCategories('.div1', data.categories);
+            appendCategories('#div1', data.categories);
+            appendSummary('#div1', data.summary);
+
 
         })
 
@@ -32,20 +35,33 @@ $(document).ready(function() {
                 return;
             }
             console.log(data.summary)
-            appendSummary('.div2', data.summary);
-            appendCategories('.div2', data.categories);
+            appendCategories('#div2', data.categories);
+            appendSummary('#div2', data.summary);
         })
+
+
+
 
         function appendSummary(div, summary) {
             $(div).append(summary);
         }
 
         function appendCategories(div, catArray) {
-            console.log(catArray);
-            let l = catArray.length;
+
+            var l = catArray.length;
+
             for (var i = 0; i < l; i++) {
-                $(div).append(catArray[i].name).addClass('nam')
-                $(div).append(catArray[i].score_out_of_10.toFixed(1) + "/10").addClass('score')
+                var $p1 = $("<p>");
+                var score = catArray[i].score_out_of_10.toFixed(1);
+                $p1.append("<div class='myProgress'><div class='myBar'>" + score +"/10</div></div>")
+
+                $(div).append($p1)
+
+                if (div === '#div1') {
+                    $p2 = $("<p>");
+                    $p2.append(catArray[i].name);
+                    $('#midDiv').append($p2);
+                }
 
 
                 console.log(catArray[i].color)
@@ -54,6 +70,20 @@ $(document).ready(function() {
             }
         }
 
+        function move() {
+            var elem = $(".myBar");
+            var width = 1;
+            var id = setInterval(frame, 10);
+
+            function frame() {
+                if (width >= 100) {
+                    clearInterval(id);
+                } else {
+                    width++;
+                    elem.style.width = width + '%';
+                }
+            }
+        }
 
     })
 })

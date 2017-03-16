@@ -6,8 +6,6 @@ console.log("js attached!")
 
 $(document).ready(function() {
 
-    // $('.scrollspy').scrollSpy();
-
     submit.addEventListener("click", function() {
         $("#div1").empty()
         $("#midDiv").empty()
@@ -52,7 +50,7 @@ $(document).ready(function() {
 
             for (var i = 0; i < l; i++) {
                 var $p1 = $("<p>");
-                var score = catArray[i].score_out_of_10.toFixed(1);
+                var score = catArray[i].score_out_of_10.toFixed(0);
                 $p1.append("<div class='myProgress'><div class='myBar'>" + score +"/10</div></div>")
 
                 $(div).append($p1)

@@ -1,15 +1,13 @@
 .brand-logo {
-  margin-left: 10px;
+    margin-left: 10px;
 }
 
 .row {
     height: 30px;
-    /*border:black solid 1px;*/
     margin: 0px;
 }
 
 .leftBar {
-    /*border: yellow solid 2px;*/
     height: 30px;
     margin: 0px;
     -moz-transform: scale(-1, 1);
@@ -20,15 +18,12 @@
 }
 
 .leftScore {
-    /*border: blue solid 2px;*/
     height: 30px;
     margin: 0px;
     text-align: right;
-
 }
 
 .category {
-    /*border: green solid 2px;*/
     height: 30px;
     margin: 0px;
     text-align: center;
@@ -42,16 +37,13 @@
 }
 
 .rightScore {
-    /*border: red solid 2px;*/
     height: 30px;
     margin: 0px;
 }
 
 .rightBar {
-    /*border: purple solid 2px;*/
     height: 30px;
     margin: 0px;
-
 }
 
 #city1, #city2 {
@@ -62,19 +54,6 @@ button {
     margin-top: 1em;
     margin-right: 3em;
 }
-
-
-/*.colored {
-  width: 90%;
-  background-color: #4CAF50;
-}*/
-
-
-/*
-.four {
-  width: 40%;
-  background-color: #4CAF50;
-}*/
 
 .bar {
     margin-bottom: 10px;
@@ -103,40 +82,4 @@ button {
 
 #data-four {
     -webkit-animation-name: bar-four;
-}
-
-@-webkit-keyframes bar-one {
-    0% {
-        width: 0%;
-    }
-    100% {
-        width: 60%;
-    }
-}
-
-@-webkit-keyframes bar-two {
-    0% {
-        width: 0%;
-    }
-    100% {
-        width: 80%;
-    }
-}
-
-@-webkit-keyframes bar-three {
-    0% {
-        width: 0%;
-    }
-    100% {
-        width: 64%;
-    }
-}
-
-@-webkit-keyframes bar-four {
-    0% {
-        width: 0%;
-    }
-    100% {
-        width: 97%;
-    }
 }

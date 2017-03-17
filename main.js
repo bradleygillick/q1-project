@@ -2,86 +2,66 @@
 /*jshint -W104*/
 /*jshint -W119*/
 
-console.log("js attached!")
 
 $(document).ready(function() {
 
     submit.addEventListener("click", function() {
-        $("#div1").empty()
-        $("#midDiv").empty()
-        $("#div2").empty()
+      // $(".leftBar").remove()
+      // $(".container").children().remove()
+        buildGrid()
+
 
         var city1 = document.getElementById("city1").value.toLowerCase();
         var city2 = document.getElementById("city2").value.toLowerCase();
 
-
         var info1 = $.get("https://api.teleport.org/api/urban_areas/slug:" + city1 + "/scores/")
         var info2 = $.get("https://api.teleport.org/api/urban_areas/slug:" + city2 + "/scores/")
 
-        info1.done((data) => {
-            if (info1.status !== 200) {
-                return;
-            }
-            appendCategories('#div1', data.categories);
-            appendSummary('#div1', data.summary);
+        info1.then((data) => {
+          for (var i = 0; i < data.categories.length; i++) {
+            var rowNum = "row" + i
+            // Append the score on the left
+            $("." + rowNum + "").find(".leftScore").append("<p>" + data.categories[i].score_out_of_10.toFixed(0) + "/10</p>")
+            // Append the category (in the middle)
+            $("." + rowNum + "").find(".category").append("<p>" + data.categories[i].name + "</p>")
+            // <div class="bar" style="width: 100%"></div>
+            // .css( "s" );
+            var barLength = data.categories[i].score_out_of_10.toFixed(0) * 10;
+            let styleStr = barLength + "%";
+            let barColor = data.categories[i].color;
+            let tempDiv = $("<div>").addClass("bar").css( "width", styleStr).css("margin-top","1.7em").css("background-color", barColor);
+            $("." + rowNum + "").find(".leftBar").append(tempDiv);
 
 
+
+        }
+
+        info2.then((data) => {
+          for (var i = 0; i < data.categories.length; i++) {
+            var rowNum = "row" + i
+            // Append the category on the right
+            $("." + rowNum + "").find(".rightScore").append("<p>" + data.categories[i].score_out_of_10.toFixed(0) + "/10</p>")
+
+            var barLength = data.categories[i].score_out_of_10.toFixed(0) * 10;
+            let styleStr = barLength + "%";
+            let barColor = data.categories[i].color;
+            let tempDiv = $("<div>").addClass("bar").css( "width", styleStr).css("margin-top","1.7em").css("background-color", barColor);
+            $("." + rowNum + "").find(".rightBar").append(tempDiv);
+
+            ++rowNum
+          }
         })
-
-        info2.done((data) => {
-            if (info2.status !== 200) {
-                return;
-            }
-            console.log(data.summary)
-            appendCategories('#div2', data.categories);
-            appendSummary('#div2', data.summary);
-        })
+})
+        // buildGrid()
 
 
-
-
-        function appendSummary(div, summary) {
-            $(div).append(summary);
-        }
-
-        function appendCategories(div, catArray) {
-
-            var l = catArray.length;
-
-            for (var i = 0; i < l; i++) {
-                var $p1 = $("<p>");
-                var score = catArray[i].score_out_of_10.toFixed(0);
-                $p1.append("<div class='myProgress'><div class='myBar'>" + score +"/10</div></div>")
-
-                $(div).append($p1)
-
-                if (div === '#div1') {
-                    $p2 = $("<p>");
-                    $p2.append(catArray[i].name);
-                    $('#midDiv').append($p2);
-                }
-
-
-                console.log(catArray[i].color)
-                console.log(catArray[i].name)
-                console.log(catArray[i].score_out_of_10)
+        function buildGrid(data) {
+          $("#stats").empty();
+            for (var i = 0; i < 17; i++) {
+                var rowNum = "row" + i
+                $("#stats").append('<div class="row ' + rowNum + '"></div>')
+                $("." + rowNum + "").append('<div class="leftBar col s4"></div>').append('<div class="leftScore col s1"></div>').append('<section class="category col s2"></section>').append('<div class="rightScore col s1"></div>').append('<div class="rightBar col s4"></div>')
             }
         }
-
-        function move() {
-            var elem = $(".myBar");
-            var width = 1;
-            var id = setInterval(frame, 10);
-
-            function frame() {
-                if (width >= 100) {
-                    clearInterval(id);
-                } else {
-                    width++;
-                    elem.style.width = width + '%';
-                }
-            }
-        }
-
     })
 })

@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <meta charset="utf-8">
     <!-- Import jquery -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 
@@ -15,66 +16,42 @@
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <title>Where to live?</title>
-    <!-- <link rel="stylesheet" href="main.css"> -->
+    <link rel="stylesheet" href="main.css">
+    <title>QoL Compare</title>
 </head>
 
 <body>
     <header>
         <nav>
-            <div class="nav-wrapper container">
+            <div class="nav-wrapper blue">
                 <a href="#" class="brand-logo">QoL Compare</a>
-                <button id="submit" class="btn waves-effect waves-light right center" type="submit" name="action">Submit</button>
+                <button id="submit" class="btn red waves-effect waves-light right" type="submit" name="action">Submit</button>
+                <p class="center">Where will you live <em>next</em>?</p>
+
             </div>
         </nav>
     </header>
     <main class="container">
-
-        <!-- <div class="row"> -->
-
-            <div class="row">
-
-                <div class="col s5">
-                    <input class="center" id="city1" type="text" name="city1" value="denver">
-                </div>
-
-                <div class="col s2"></div>
-
-                <div class="col s5">
-                    <input class="center" id="city2" type="text" name="city2" value="moscow">
-                </div>
-            </div>
-        <!-- </div> -->
-
-
-
-
         <div class="row">
-            <div class="col s4 right-align">
-                <div id="div1">
-                </div>
+            <div class="col s5">
+                <input class="center" id="city1" type="text" name="city1" value="Add a city...">
             </div>
-            <div class="col s4 center-align">
-                <div id="midDiv" class="top">
-                </div>
-            </div>
-            <div class="col s4 left-align">
-                <div id="div2">
-                </div>
+
+            <div class="col s2"></div>
+
+            <div class="col s5">
+                <input class="center" id="city2" type="text" name="city2" value="Add another city...">
             </div>
         </div>
+        <section id="stats">
+
+        </section>
     </main>
 
-    <footer class="page-footer">
-        <div class="footer-copyright">
-            <div class="container">
-                © 2014 Gillick Enterprises
-                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-            </div>
-        </div>
-    </footer>
 
-    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="main.js">
+    </script>
+
 
 </body>
 

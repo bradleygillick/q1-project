@@ -1,0 +1,85 @@
+.brand-logo {
+    margin-left: 10px;
+}
+
+.row {
+    height: 30px;
+    margin: 0px;
+}
+
+.leftBar {
+    height: 30px;
+    margin: 0px;
+    -moz-transform: scale(-1, 1);
+    -webkit-transform: scale(-1, 1);
+    -o-transform: scale(-1, 1);
+    -ms-transform: scale(-1, 1);
+    transform: scale(-1, 1);
+}
+
+.leftScore {
+    height: 30px;
+    margin: 0px;
+    text-align: right;
+}
+
+.category {
+    height: 30px;
+    margin: 0px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.category>* {
+    text-align: center;
+    vertical-align: middle;
+    border-bottom: black solid 1px;
+}
+
+.rightScore {
+    height: 30px;
+    margin: 0px;
+}
+
+.rightBar {
+    height: 30px;
+    margin: 0px;
+}
+
+#city1, #city2 {
+    height: 10vh;
+}
+
+button {
+    margin-top: 1em;
+    margin-right: 3em;
+}
+
+.bar {
+    margin-bottom: 10px;
+    padding: 4px;
+    text-align: center;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-animation-name: bar;
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease-out;
+}
+
+#data-one {
+    -webkit-animation-name: bar-one;
+}
+
+#data-two {
+    -webkit-animation-name: bar-two;
+}
+
+#data-three {
+    -webkit-animation-name: bar-three;
+}
+
+#data-four {
+    -webkit-animation-name: bar-four;
+}
